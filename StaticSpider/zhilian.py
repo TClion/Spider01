@@ -7,11 +7,19 @@ from urllib import parse as urllib
 
 Url = "http://sou.zhaopin.com/jobs/searchresult.ashx?"      #源链接
 
+header = {
 
+    'Host': 'sou.zhaopin.com',
+    'User-Agent': "Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0",
+    'Accept': "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    'Accept-Language': "zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3",
+    'Connection': "keep-alive",
+
+}
 
 #解析出公司，职位，月薪，更新日期和简介
 def getInfo(url):
-    html = requests.get(url)
+    html = requests.get(url,headers=header)
     text = html.text
     page = etree.HTML(text)
     name = page.xpath('//td[@class="gsmc"]/a/text()')
