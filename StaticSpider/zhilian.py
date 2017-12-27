@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """这是一个抓取智联招聘信息的爬虫，职位和工作地点由用户输入，结果放在mysql zhilian表中,要提前建好zhilian表"""
 
 import requests
